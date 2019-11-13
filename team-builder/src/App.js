@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import styled from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import PersonForm from './Components/PersonForm';
+import Person from './Components/Person';
+
+const AppContainer = styled.div`
+
+`;
+const JoinH1 = styled.h1`
+
+`;
+
+function App () {
+    const [people, setPeople] = useState([{
+        name: '',
+        email: '',
+        role: ''
+    }]);
+
+    const addNewPerson = person => {
+        const newPerson = {
+            id: Date.now(),
+            name: person.name,
+            email: person.email,
+            role: person.role
+        };
+        setPeople([...people, newPerson]);
+    };
+
+    return (
+        <AppContainer className="App">
+            <JoinH1>Join Our Team!</JoinH1>
+            <PersonForm addNewPerson={addNewPerson}/>
+            <Person people={people}/>
+        </AppContainer>
+    );
 }
 
 export default App;
