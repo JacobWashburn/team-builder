@@ -1,18 +1,38 @@
 import React, {useState} from 'react';
+import styled from 'styled-components';
 
+const CardWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+`;
+const Card = styled.div`
+  width: 45%;
+  border: 1px solid red;
+  
+`;
+const Name = styled.h1`
+
+`;
+const Email = styled.h2`
+
+`;
+const Role = styled.h2`
+
+`;
 const Person = props => {
     return (
-        <div>
+        <CardWrapper>
             {props.people.map(person => {
                 return (
-                    <div key={person.id}>
-                        <h1>{person.name}</h1>
-                        <h2>{person.email}</h2>
-                        <h2>{person.role}</h2>
-                    </div>
+                    <Card key={person.id}>
+                        <Name>{person.name}</Name>
+                        <Email>{person.email}</Email>
+                        <Role>{person.role}</Role>
+                    </Card>
                 );
             })}
-        </div>
+        </CardWrapper>
     );
 };
 
