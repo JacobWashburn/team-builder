@@ -25,10 +25,6 @@ const Button = styled.button`
   border-radius: 1rem;
 `;
 
-const Error = styled.h1`
-  //display: none;
-`;
-
 const PersonForm = props => {
         const [person, setPerson] = useState({
             name: "",
@@ -42,25 +38,12 @@ const PersonForm = props => {
 
         const submitForm = event => {
             event.preventDefault();
-            // props.addNewPerson(person);
-            // setPerson({
-            //     name: '',
-            //     email: '',
-            //     role: ''
-            // });
-
-            if (person.name && person.email && person.role) {
-                props.addNewPerson(person);
-                setPerson({
-                    name: '',
-                    email: '',
-                    role: ''
-                });
-                Error.display = 'none'
-            }else{
-                Error.display = 'block'
-            }
-            ;
+            props.addNewPerson(person);
+            setPerson({
+                name: '',
+                email: '',
+                role: ''
+            });
         };
 
         return (
@@ -68,17 +51,20 @@ const PersonForm = props => {
                 <InputWrapper>
                     <label htmlFor='name'>Name: </label>
                     <Input
+                        required
                         id='name'
                         type='text'
                         name="name"
                         value={person.name}
                         onChange={handleChanges}
+
                     />
                 </InputWrapper>
                 <InputWrapper>
 
                     <label htmlFor='email'>Email: </label>
                     <Input
+                        required
                         id='email'
                         type='email'
                         name="email"
@@ -90,6 +76,7 @@ const PersonForm = props => {
 
                     <label htmlFor='role'>Role: </label>
                     <Input
+                        required
                         id='role'
                         type='text'
                         name="role"
@@ -100,7 +87,6 @@ const PersonForm = props => {
                 <InputWrapper>
                     <Button type='submit'>Join Our Team</Button>
                 </InputWrapper>
-                <Error>Please fill in all areas.</Error>
             </Form>
         );
     }
