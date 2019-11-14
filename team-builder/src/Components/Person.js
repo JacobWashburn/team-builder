@@ -8,7 +8,10 @@ const CardWrapper = styled.div`
 `;
 const Card = styled.div`
   width: 45%;
-  border: 1px solid red;
+  border: 3px solid red;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
   
 `;
 const Name = styled.h1`
