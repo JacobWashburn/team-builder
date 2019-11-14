@@ -6,7 +6,9 @@ import PersonForm from './Components/PersonForm';
 import Person from './Components/Person';
 
 const AppContainer = styled.div`
-
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
 `;
 const JoinH1 = styled.h1`
 
@@ -14,9 +16,9 @@ const JoinH1 = styled.h1`
 
 function App () {
     const [people, setPeople] = useState([{
-        name: '',
-        email: '',
-        role: ''
+        name: 'Jacob Washburn',
+        email: 'jacobisawesome@sauce.com',
+        role: 'tinkerer'
     }]);
 
     const addNewPerson = person => {
